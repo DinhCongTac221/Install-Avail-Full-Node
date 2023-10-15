@@ -10,7 +10,8 @@ source ~/.cargo/env
 rustup default stable
 rustup update
 rustup update nightly
-rustup target add wasm32-unknown-unknown --toolchain nightly```
+rustup target add wasm32-unknown-unknown --toolchain nightly
+```
 
 2.**After ensuring you have the dependencies installed, you can run the Avail Node using the following command:**
 
@@ -65,19 +66,16 @@ nano /etc/systemd/system/availd.service
 **Change your Validator name and copy/paste it
 **
 ```
-[Unit]
+[Unit] 
 Description=Avail Validator
 After=network.target
 StartLimitIntervalSec=0
-
-[Service]
-User=root
-Type=simple
-Restart=always
+[Service] 
+User=root 
+ExecStart= ./target/release/data-avail --base-path `pwd`/data --chain kate --name "Dinhcongtac221"
+Restart=always 
 RestartSec=120
-ExecStart=/root/avail-node/data-avail --base-path /root/avail-node/data --chain /root/avail-node/chainspec.raw.json --port 30333 --validator --name Yourvalidatorname
-
-[Install]
+[Install] 
 WantedBy=multi-user.target
 
 ```
@@ -95,3 +93,7 @@ You can check that it's working with:
 You can tail the logs with journalctllike so:
 
 ```journalctl -f -u availd```
+
+Check your node on https://telemetry.avail.tools/
+![image](https://github.com/DinhCongTac221/Install-Avail-Full-Node/assets/27664184/c70aaf66-ccbc-485e-ae9e-c09674425772)
+
