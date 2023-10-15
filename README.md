@@ -13,7 +13,7 @@ rustup update nightly
 rustup target add wasm32-unknown-unknown --toolchain nightly
 ```
 
-2.**After ensuring you have the dependencies installed, you can run the Avail Node using the following command:**
+2.**After ensuring you have Rust installed, you can run the Avail Node using the following command:**
 
 ```
 git clone https://github.com/availproject/avail.git
