@@ -86,12 +86,15 @@ WantedBy=multi-user.target
 **To enable this to autostart on bootup run:**
 
 ```systemctl enable availd.service```
+
 Start it manually with:
 
 ```systemctl start availd.service```
+
 You can check that it's working with:
 
 ```systemctl status availd.service```
+
 You can tail the logs with journalctllike so:
 
 ```journalctl -f -u availd```
