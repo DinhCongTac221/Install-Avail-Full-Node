@@ -58,13 +58,15 @@ cargo run --locked --release -- --chain kate -d ./output
 2023-10-11 16:11:34 [#811] 🗳  creating a snapshot with metadata SolutionOrSnapshotSize { voters: 9, targets: 9 }    
 2023-10-11 16:11:34 [#811] 🗳  Starting phase Signed, round 1.
 ```
+
 3. **Create Systemd**
 ```
 touch /etc/systemd/system/availd.service
 nano /etc/systemd/system/availd.service
 ```
-**Change your Validator name and copy/paste it
-**
+
+**Change your Validator name and copy/paste it**
+
 ```
 [Unit] 
 Description=Avail Validator
@@ -79,10 +81,10 @@ RestartSec=120
 WantedBy=multi-user.target
 
 ```
-**Save it: CTRL+X
-**
-**To enable this to autostart on bootup run:
-**
+**Save it: CTRL+X**
+
+**To enable this to autostart on bootup run:**
+
 ```systemctl enable availd.service```
 Start it manually with:
 
