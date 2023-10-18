@@ -86,8 +86,10 @@ RestartSec=120
 WantedBy=multi-user.target
 
 ```
-**Save it: CTRL+X**
+**Save it: CTRL+X** .
+
 P/s: My username is root what I used to login my Vps.
+
  data-avail file in this directory. 
 ![image](https://github.com/DinhCongTac221/Install-Avail-Full-Node/assets/27664184/dd397a8e-dfce-44f5-9a2c-38ad2405258d)
 
