@@ -2,6 +2,7 @@
  This is a guide for installing Avail Node on Ubuntu 22.04.
  Video:
  https://youtu.be/HYBzK-jJIeQ
+ ![image](https://youtu.be/HYBzK-jJIeQ)
   *** 
 1.** Install Rust**
 
@@ -91,7 +92,9 @@ WantedBy=multi-user.target
 P/s: My username is root what I used to login my Vps.
 
  data-avail file in this directory. 
-![image](https://github.com/DinhCongTac221/Install-Avail-Full-Node/assets/27664184/dd397a8e-dfce-44f5-9a2c-38ad2405258d)
+
+![image](https://github.com/DinhCongTac221/Install-Avail-Full-Node/assets/27664184/1b1a15bb-edbf-44be-ba44-669a2cc90273)
+
 
 
 **To enable this to autostart on bootup run:**
