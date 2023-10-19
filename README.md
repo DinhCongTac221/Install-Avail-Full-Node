@@ -2,7 +2,7 @@
  This is a guide for installing Avail Node on Ubuntu 22.04.
  Video:
  https://youtu.be/HYBzK-jJIeQ
- ![image](https://youtu.be/HYBzK-jJIeQ)
+
   *** 
 1.** Install Rust**
 
