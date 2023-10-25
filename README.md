@@ -25,7 +25,7 @@ git clone https://github.com/availproject/avail.git
 cd avail
 mkdir -p output
 mkdir -p data
-git checkout df23f12
+git checkout v1.7.2
 cargo run --locked --release -- --chain kate -d ./output
 ```
 **This command complies and runs the Avail Node connected to the Kate Network.
