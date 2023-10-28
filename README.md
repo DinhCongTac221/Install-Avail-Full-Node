@@ -65,8 +65,10 @@ cargo run --locked --release -- --chain kate -d ./output
 2023-10-11 16:11:34 [#811] 🗳  creating a snapshot with metadata SolutionOrSnapshotSize { voters: 9, targets: 9 }    
 2023-10-11 16:11:34 [#811] 🗳  Starting phase Signed, round 1.
 ```
-**Press Ctrl + A + D to exit the screen
 **
+Press Ctrl + A + D to exit the screen
+**
+
 3. **Create Systemd**
 ```
 touch /etc/systemd/system/availd.service
