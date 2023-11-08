@@ -25,8 +25,8 @@ git clone https://github.com/availproject/avail.git
 cd avail
 mkdir -p output
 mkdir -p data
-git checkout v1.7.2
-cargo run --locked --release -- --chain kate -d ./output
+git checkout v1.8.0.0
+cargo run --locked --release -- --chain goldberg -d ./output
 ```
 **This command complies and runs the Avail Node connected to the Kate Network.
 **
@@ -84,7 +84,7 @@ After=network.target
 StartLimitIntervalSec=0
 [Service] 
 User=root 
-ExecStart= /root/avail/target/release/data-avail --base-path `pwd`/data --chain kate --name "Dinhcongtac221"
+ExecStart= /root/avail/target/release/data-avail --base-path `pwd`/data --chain goldberg --name "Dinhcongtac221"
 Restart=always 
 RestartSec=120
 [Install] 
