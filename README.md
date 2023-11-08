@@ -120,3 +120,37 @@ You can tail the logs with journalctllike so:
 Check your node on https://telemetry.avail.tools/
 ![image](https://github.com/DinhCongTac221/Install-Avail-Full-Node/assets/27664184/c70aaf66-ccbc-485e-ae9e-c09674425772)
 
+#Update your Node
+
+```
+cd avail
+sudo systemctl stop availd.service
+git pull
+git checkout v1.8.0.0
+
+cargo run --locked --release -- --chain goldberg -d ./output
+```
+**Change Chain Kate to Chain Goldberg
+**
+```
+[Unit] 
+Description=Avail Validator
+After=network.target
+StartLimitIntervalSec=0
+[Service] 
+User=root 
+ExecStart= /root/avail/target/release/data-avail --base-path `pwd`/data --chain goldberg --name "Dinhcongtac221"
+Restart=always 
+RestartSec=120
+[Install] 
+WantedBy=multi-user.target
+
+```
+**Start your node
+**
+```
+sudo systemctl daemon-reload
+sudo systemctl enable availd.service 
+sudo service availd start
+systemctl status availd.service
+```
