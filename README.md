@@ -120,7 +120,7 @@ You can tail the logs with journalctllike so:
 Check your node on https://telemetry.avail.tools/
 ![image](https://github.com/DinhCongTac221/Install-Avail-Full-Node/assets/27664184/c70aaf66-ccbc-485e-ae9e-c09674425772)
 
-#Update your Node
+# Update your Node to 1.8.0.0 Version
 
 ```
 cd avail
