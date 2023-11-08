@@ -133,6 +133,9 @@ cargo run --locked --release -- --chain goldberg -d ./output
 **Change Chain Kate to Chain Goldberg
 **
 ```
+nano /etc/systemd/system/availd.service
+```
+```
 [Unit] 
 Description=Avail Validator
 After=network.target
