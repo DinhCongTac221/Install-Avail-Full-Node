@@ -121,7 +121,8 @@ Check your node on https://telemetry.avail.tools/
 ![image](https://github.com/DinhCongTac221/Install-Avail-Full-Node/assets/27664184/c70aaf66-ccbc-485e-ae9e-c09674425772)
 
 
-**# Guide Update Kate to GoldBerg**
+
+# ** Guide Update Kate to GoldBerg**
 **run commands**
 ```
 sudo systemctl stop availd.service
