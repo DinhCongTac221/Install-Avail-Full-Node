@@ -1,10 +1,10 @@
 # Install-Avail-Full-Node
- This is a guide for installing Avail Node on Ubuntu 22.04.
+# This is a guide for installing Avail Node on Ubuntu 22.04.
  Video:
  https://youtu.be/HYBzK-jJIeQ
 
   *** 
-1.** Install Rust**
+X1.** Install Rust**
 
 ```
 sudo apt-get update
@@ -120,3 +120,41 @@ You can tail the logs with journalctllike so:
 Check your node on https://telemetry.avail.tools/
 ![image](https://github.com/DinhCongTac221/Install-Avail-Full-Node/assets/27664184/c70aaf66-ccbc-485e-ae9e-c09674425772)
 
+
+**# Guide Update Kate to GoldBerg**
+**run commands**
+```
+sudo systemctl stop availd.service
+cd
+cd avail
+cargo update
+git pull
+git checkout v1.8.0.0
+
+cargo run --locked --release -- --chain goldberg -d ./output" 
+```
+**Open availd.service and Change --chain Kate to -- Chain Goldberg**
+```sudo nano /etc/systemd/system/availd.service```
+
+```
+[Unit] 
+Description=Avail Validator
+After=network.target
+StartLimitIntervalSec=0
+[Service] 
+User=root 
+ExecStart= /root/avail/target/release/data-avail --base-path `pwd`/data --chain goldberg --name "Dinhcongtac221"
+Restart=always 
+RestartSec=120
+[Install] 
+WantedBy=multi-user.target
+
+```
+Ctrl+ O to save it, Ctrl+ X to exit.
+![image](https://github.com/DinhCongTac221/Install-Avail-Full-Node/assets/27664184/0ebe57f8-2e4d-404c-9c69-c33e71a2491e)
+
+**restart availd.service**
+```sudo systemctl daemon-reload
+sudo systemctl enable availd.service 
+sudo service availd start
+systemctl status availd.service```
