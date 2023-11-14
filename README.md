@@ -135,6 +135,7 @@ git checkout v1.8.0.0
 cargo run --locked --release -- --chain goldberg -d ./output" 
 ```
 **Open availd.service and Change --chain Kate to -- Chain Goldberg**
+
 ```sudo nano /etc/systemd/system/availd.service```
 
 ```
