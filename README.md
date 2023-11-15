@@ -184,3 +184,47 @@ Change DA_NAME=goldberg-docker-avail-Node to your node name and run again
 cd /mnt/avail
 sudo docker run -v $(pwd)/state:/da/state:rw -v $(pwd)/keystore:/da/keystore:rw -e DA_CHAIN=goldberg -e DA_NAME=goldberg-docker-avail-Node -p 0.0.0.0:30333:30333 -p 9615:9615 -p 9944:9944 -d --restart unless-stopped availj/avail:v1.8.0.0
 ```
+
+
+------------------------------------------------------------
+# ** Guide Update Kate to GoldBerg by pre-build**
+
+Run Commands 
+```
+sudo systemctl stop availd.service 
+cd /root/avail-node/
+rm data-avail-linux-amd64
+wget https://github.com/availproject/avail/releases/download/v1.8.0.0/data-avail-linux-amd64.tar.gz
+tar xvzf data-avail-linux-amd64.tar.gz
+```
+Open file Systemd and edit to --chain goldberg
+```
+nano /etc/systemd/system/availd.service
+```
+```
+[Unit]
+Description=Avail Validator
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+User=root
+Type=simple
+Restart=always
+RestartSec=120
+ExecStart=/root/avail-node/data-avail-linux-amd64 --base-path /root/avail-node/data --chain goldberg --port 30333 --validator --name "molla202"
+
+[Install]
+WantedBy=multi-user.target
+```
+
+CTRL +o to save . Ctrl +X to exit
+
+restart systemd file again
+
+```
+sudo systemctl daemon-reload
+sudo systemctl enable availd.service
+sudo systemctl restart availd.service
+sudo systemctl status availd.service
+```
