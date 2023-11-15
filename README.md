@@ -136,7 +136,9 @@ cargo run --locked --release -- --chain goldberg -d ./output
 ```
 **Open availd.service and Change --chain Kate to -- Chain Goldberg**
 
-```sudo nano /etc/systemd/system/availd.service```
+```
+sudo nano /etc/systemd/system/availd.service
+```
 
 ```
 [Unit] 
@@ -156,7 +158,9 @@ Ctrl+ O to save it, Ctrl+ X to exit.
 ![image](https://github.com/DinhCongTac221/Install-Avail-Full-Node/assets/27664184/0ebe57f8-2e4d-404c-9c69-c33e71a2491e)
 
 **restart availd.service**
-```sudo systemctl daemon-reload
+```
+sudo systemctl daemon-reload
 sudo systemctl enable availd.service 
 sudo service availd start
-systemctl status availd.service```
+systemctl status availd.service
+```
