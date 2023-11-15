@@ -117,7 +117,7 @@ You can tail the logs with journalctllike so:
 
 ```journalctl -f -u availd```
 
-Check your node on https://telemetry.avail.tools/
+Check your node on https://telemetry.avail.tools
 ![image](https://github.com/DinhCongTac221/Install-Avail-Full-Node/assets/27664184/c70aaf66-ccbc-485e-ae9e-c09674425772)
 
 
