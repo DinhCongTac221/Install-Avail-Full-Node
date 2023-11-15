@@ -164,3 +164,23 @@ sudo systemctl enable availd.service
 sudo service availd start
 systemctl status availd.service
 ```
+----------------------------------------------------------------
+
+
+# ** Guide Update Kate to GoldBerg by Docker**
+
+you could try to Find container Id 
+```
+docker ps -a
+```
+
+Stop the node 
+ ```
+ docker stop <YOUR CONTAINER ID here>
+```
+
+Change DA_NAME=goldberg-docker-avail-Node to your node name and run again 
+```
+cd /mnt/avail
+sudo docker run -v $(pwd)/state:/da/state:rw -v $(pwd)/keystore:/da/keystore:rw -e DA_CHAIN=goldberg -e DA_NAME=goldberg-docker-avail-Node -p 0.0.0.0:30333:30333 -p 9615:9615 -p 9944:9944 -d --restart unless-stopped availj/avail:v1.8.0.0
+```
