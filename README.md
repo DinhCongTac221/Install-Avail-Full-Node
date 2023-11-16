@@ -128,7 +128,6 @@ Check your node on https://telemetry.avail.tools
 sudo systemctl stop availd.service
 cd
 cd avail
-cargo update
 git pull
 git checkout v1.8.0.0
 
