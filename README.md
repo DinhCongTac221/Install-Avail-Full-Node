@@ -25,7 +25,7 @@ git clone https://github.com/availproject/avail.git
 cd avail
 mkdir -p output
 mkdir -p data
-git checkout v1.8.0.0
+git checkout v1.8.0.2
 cargo run --locked --release -- --chain goldberg -d ./output
 ```
 **This command complies and runs the Avail Node connected to the Kate Network.
@@ -129,7 +129,7 @@ sudo systemctl stop availd.service
 cd
 cd avail
 git pull
-git checkout v1.8.0.0
+git checkout v1.8.0.2
 
 cargo run --locked --release -- --chain goldberg -d ./output
 ```
@@ -181,7 +181,7 @@ Stop the node
 Change DA_NAME=goldberg-docker-avail-Node to your node name and run again 
 ```
 cd /mnt/avail
-sudo docker run -v $(pwd)/state:/da/state:rw -v $(pwd)/keystore:/da/keystore:rw -e DA_CHAIN=goldberg -e DA_NAME=goldberg-docker-avail-Node -p 0.0.0.0:30333:30333 -p 9615:9615 -p 9944:9944 -d --restart unless-stopped availj/avail:v1.8.0.0
+sudo docker run -v $(pwd)/state:/da/state:rw -v $(pwd)/keystore:/da/keystore:rw -e DA_CHAIN=goldberg -e DA_NAME=goldberg-docker-avail-Node -p 0.0.0.0:30333:30333 -p 9615:9615 -p 9944:9944 -d --restart unless-stopped availj/avail:v1.8.0.2
 ```
 
 
@@ -193,7 +193,8 @@ Run Commands
 sudo systemctl stop availd.service 
 cd /root/avail-node/
 rm data-avail-linux-amd64
-wget https://github.com/availproject/avail/releases/download/v1.8.0.0/data-avail-linux-amd64.tar.gz
+rm data-avail-linux-amd64.tar.gz
+wget https://github.com/availproject/avail/releases/download/v1.8.0.2/data-avail-linux-amd64.tar.gz
 tar xvzf data-avail-linux-amd64.tar.gz
 ```
 Open file Systemd and edit to --chain goldberg
@@ -211,7 +212,7 @@ User=root
 Type=simple
 Restart=always
 RestartSec=120
-ExecStart=/root/avail-node/data-avail-linux-amd64 --base-path /root/avail-node/data --chain goldberg --port 30333 --validator --name "molla202"
+ExecStart=/root/avail-node/data-avail-linux-amd64 --base-path /root/avail-node/data --chain goldberg --port 30333 --validator --name "dinhcongac221"
 
 [Install]
 WantedBy=multi-user.target
