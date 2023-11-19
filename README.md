@@ -126,12 +126,20 @@ Check your node on https://telemetry.avail.tools
 **run commands**
 ```
 sudo systemctl stop availd.service
+
 cd
 cd avail
+```
+```
 git pull
+```
+```
 git checkout
+```
+```
 git checkout v1.8.0.2
-
+```
+```
 cargo run --locked --release -- --chain goldberg -d ./output
 ```
 **Open availd.service and Change --chain Kate to -- Chain Goldberg**
