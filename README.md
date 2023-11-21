@@ -84,7 +84,7 @@ After=network.target
 StartLimitIntervalSec=0
 [Service] 
 User=root 
-ExecStart= /root/avail/target/release/data-avail -d ./output --chain goldberg --validator --name "Dinhcongtac221"
+ExecStart= /root/avail/target/release/data-avail -d ./data --chain goldberg --validator --name "Dinhcongtac221"
 Restart=always 
 RestartSec=120
 [Install] 
@@ -141,7 +141,6 @@ git checkout v1.8.0.2
 ```
 ```
 cargo run --locked --release -- --chain goldberg -d ./output
-```
 **Open availd.service and Change --chain Kate to -- Chain Goldberg**
 
 ```
@@ -155,7 +154,7 @@ After=network.target
 StartLimitIntervalSec=0
 [Service] 
 User=root 
-ExecStart= /root/avail/target/release/data-avail -d ./output --chain goldberg --validator --name "Dinhcongtac221"
+ExecStart= /root/avail/target/release/data-avail -d ./data --chain goldberg --validator --name "Dinhcongtac221"
 Restart=always 
 RestartSec=120
 [Install] 
@@ -221,7 +220,7 @@ User=root
 Type=simple
 Restart=always
 RestartSec=120
-ExecStart=/root/avail-node/data-avail-linux-amd64 /root/avail-node/data --chain goldberg --port 30333 --validator --name "dinhcongac221"
+ExecStart=/root/avail-node/data-avail-linux-amd64 -d ./data --chain goldberg --port 30333 --validator --name "dinhcongac221"
 
 [Install]
 WantedBy=multi-user.target
