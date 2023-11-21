@@ -84,7 +84,7 @@ After=network.target
 StartLimitIntervalSec=0
 [Service] 
 User=root 
-ExecStart= /root/avail/target/release/data-avail --base-path -d ./output --chain goldberg --validator --name "Dinhcongtac221"
+ExecStart= /root/avail/target/release/data-avail -d ./output --chain goldberg --validator --name "Dinhcongtac221"
 Restart=always 
 RestartSec=120
 [Install] 
@@ -155,7 +155,7 @@ After=network.target
 StartLimitIntervalSec=0
 [Service] 
 User=root 
-ExecStart= /root/avail/target/release/data-avail --base-path -d ./output --chain goldberg --validator --name "Dinhcongtac221"
+ExecStart= /root/avail/target/release/data-avail -d ./output --chain goldberg --validator --name "Dinhcongtac221"
 Restart=always 
 RestartSec=120
 [Install] 
@@ -221,7 +221,7 @@ User=root
 Type=simple
 Restart=always
 RestartSec=120
-ExecStart=/root/avail-node/data-avail-linux-amd64 --base-path /root/avail-node/data --chain goldberg --port 30333 --validator --name "dinhcongac221"
+ExecStart=/root/avail-node/data-avail-linux-amd64 /root/avail-node/data --chain goldberg --port 30333 --validator --name "dinhcongac221"
 
 [Install]
 WantedBy=multi-user.target
