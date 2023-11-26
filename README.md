@@ -26,7 +26,7 @@ cd avail
 mkdir -p output
 mkdir -p data
 git checkout v1.8.0.2
-cargo run --locked --release -- --chain goldberg -d ./output
+cargo run --locked --release -- --chain goldberg --validator -d ./output 
 ```
 **This command complies and runs the Avail Node connected to the Kate Network.
 **
@@ -140,7 +140,7 @@ git checkout
 git checkout v1.8.0.2
 ```
 ```
-cargo run --locked --release -- --chain goldberg -d ./output
+cargo run --locked --release -- --chain goldberg  --validator -d ./output
 
 ```
 **Open availd.service and Change --chain Kate to -- Chain Goldberg**
