@@ -25,7 +25,7 @@ git clone https://github.com/availproject/avail.git
 cd avail
 mkdir -p output
 mkdir -p data
-git checkout v1.8.0.2
+git checkout v1.8.0.3
 cargo run --locked --release -- --chain goldberg --validator -d ./output 
 ```
 **This command complies and runs the Avail Node connected to the Kate Network.
@@ -137,7 +137,7 @@ git pull
 git checkout
 ```
 ```
-git checkout v1.8.0.2
+git checkout v1.8.0.3
 ```
 ```
 cargo run --locked --release -- --chain goldberg  --validator -d ./output
@@ -204,7 +204,7 @@ sudo systemctl stop availd.service
 cd /root/avail-node/
 rm data-avail-linux-amd64
 rm data-avail-linux-amd64.tar.gz
-wget https://github.com/availproject/avail/releases/download/v1.8.0.2/data-avail-linux-amd64.tar.gz
+wget https://github.com/availproject/avail/releases/download/v1.8.0.3/data-avail-linux-amd64.tar.gz
 tar xvzf data-avail-linux-amd64.tar.gz
 ```
 Open file Systemd and edit to --chain goldberg
