@@ -71,8 +71,8 @@ Press Ctrl + A + D to exit the screen
 
 3. **Create Systemd**
 ```
-touch /etc/systemd/system/availd.service
-nano /etc/systemd/system/availd.service
+sudo touch /etc/systemd/system/availd.service
+sudo nano /etc/systemd/system/availd.service
 ```
 
 **Change your Validator name and copy/paste it**
