@@ -122,8 +122,14 @@ Check your node on https://telemetry.avail.tools
 
 
 
-# ** Guide Update Kate to GoldBerg**
+# ** Guide Update Kate to GoldBerg or Update your node**
 **run commands**
+ 
+```
+systemctl status availd.service
+```
+![image](https://github.com/DinhCongTac221/Install-Avail-Full-Node/assets/27664184/1f0fb7a6-c1d8-4503-a101-bdae4c383297)
+ To know your data dictory is : mine is ./data
 ```
 sudo systemctl stop availd.service
 
@@ -137,12 +143,29 @@ git pull
 git checkout
 ```
 ```
-git checkout v1.8.0.3
+git checkout v1.9.0.0
 ```
+
+Change your data dictory on above to this command and run ( mine is ./data)
 ```
-cargo run --locked --release -- --chain goldberg  --validator -d ./output
+cargo run --locked --release -- --chain goldberg  --validator -d ./data
 
 ```
+Wait till it complete. 
+
+If you are just update your node
+
+and run 
+**restart availd.service**
+```
+sudo systemctl daemon-reload
+sudo systemctl enable availd.service 
+sudo service availd start
+systemctl status availd.service
+```
+-------------------
+
+If you are update your node from Kate to Goldberg
 **Open availd.service and Change --chain Kate to -- Chain Goldberg**
 
 ```
