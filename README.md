@@ -24,9 +24,8 @@ rustup target add wasm32-unknown-unknown --toolchain nightly
 git clone https://github.com/availproject/avail.git
 cd avail
 mkdir -p output
-mkdir -p data
-git checkout v1.9.0.0
-cargo run --locked --release -- --chain goldberg --validator -d ./output 
+git checkout v1.10.0.0
+cargo run --locked --release -- --chain goldberg --validator -d ./root/avail/output 
 ```
 **This command complies and runs the Avail Node connected to the Kate Network.
 **
