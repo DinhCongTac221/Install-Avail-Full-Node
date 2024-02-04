@@ -121,142 +121,45 @@ Check your node on https://telemetry.avail.tools
 
 
 
-# ** Guide Update Kate to GoldBerg or Update your node**
+# ** Guide Update to v1.10.0 by built from source**
 **run commands**
  
 ```
-systemctl status availd.service
+systemctl stop availd.service
 ```
-![image](https://github.com/DinhCongTac221/Install-Avail-Full-Node/assets/27664184/1f0fb7a6-c1d8-4503-a101-bdae4c383297)
- To know your data dictory is : mine is ./data
-```
-sudo systemctl stop availd.service
-
-cd
-cd avail
-```
-```
-git pull
-```
-```
-git checkout
-```
-```
-git checkout v1.9.0.0
-```
-
-Change your data dictory on above to this command and run ( mine is ./data)
-```
-cargo run --locked --release -- --chain goldberg  --validator -d ./data
-
-```
-Wait till it complete. 
-
-If you are just update your node
-
-and run 
-**restart availd.service**
-```
-sudo systemctl daemon-reload
-sudo systemctl enable availd.service 
-sudo service availd start
-systemctl status availd.service
-```
--------------------
-
-If you are update your node from Kate to Goldberg
-**Open availd.service and Change --chain Kate to -- Chain Goldberg**
-
+run the command to know **your data dir** and add more flags
 ```
 sudo nano /etc/systemd/system/availd.service
 ```
+![image](https://github.com/DinhCongTac221/Install-Avail-Full-Node/assets/27664184/e590ccc0-e5b3-4aec-8290-08da0ab81cd9)
+
+in this picture, my data dir is '/root/avail/output '
+
+copy and paste all to end of  ExecStart=  
+```
+--reserved-nodes "/dns/bootnode-001.goldberg.avail.tools/tcp/30333/p2p/12D3KooWCVqFvrP3UJ1S338Gb8SHvEQ1xpENLb45Dbynk4hu1XGN" "/dns/bootnode-002.goldberg.avail.tools/tcp/30333/p2p/12D3KooWD6sWeWCG5Z1qhejhkPk9Rob5h75wYmPB6MUoPo7br58m" "/dns/bootnode-003.goldberg.avail.tools/tcp/30333/p2p/12D3KooWMR9ZoAVWJv6ahraVzUCfacNbFKk7ABoWxVL3fJ3XXGDw" "/dns/bootnode-004.goldberg.avail.tools/tcp/30333/p2p/12D3KooWMuyLE3aPQ82HTWuPUCjiP764ebQrZvGUzxrYGuXWZJZV" "/dns/bootnode-005.goldberg.avail.tools/tcp/30333/p2p/12D3KooWKJwbdcZ7QWcPLHy3EJ1UiffaLGnNBMffeK8AqRVWBZA1" "/dns/bootnode-006.goldberg.avail.tools/tcp/30333/p2p/12D3KooWM8AaHDH8SJvg6bq4CGQyHvW2LH7DCHbdv633dsrti7i5" --reserved-only
+```
+run commands to **delete db and network** folder. ( change your data dir)
 
 ```
-[Unit] 
-Description=Avail Validator
-After=network.target
-StartLimitIntervalSec=0
-[Service] 
-User=root 
-ExecStart= /root/avail/target/release/data-avail -d ./output --chain goldberg --validator --name "Dinhcongtac221"
-Restart=always 
-RestartSec=120
-[Install] 
-WantedBy=multi-user.target
-
+rm -r /root/avail/output/chains/avail_goldberg_testnet/db/*
+rm -r /root/avail/output/chains/avail_goldberg_testnet/network/*
 ```
-Ctrl+ O to save it, Ctrl+ X to exit.
-![image](https://github.com/DinhCongTac221/Install-Avail-Full-Node/assets/27664184/0ebe57f8-2e4d-404c-9c69-c33e71a2491e)
 
-**restart availd.service**
+install lz4
+```
+sudo apt-get -y install lz4
+```
+
+Run the command to download snapshot ( change your data dir )
+```
+curl -o - -L http://snapshots.staking4all.org/snapshots/avail/latest/avail.tar.lz4 | lz4 -c -d - | tar -x -C /root/avail/output/chains/avail_goldberg_testnet/
+```
+and run commands to restart it
+
 ```
 sudo systemctl daemon-reload
 sudo systemctl enable availd.service 
-sudo service availd start
+sudo service availd start 
 systemctl status availd.service
-```
-----------------------------------------------------------------
-
-
-# ** Guide Update Kate to GoldBerg by Docker**
-
-you could try to Find container Id 
-```
-docker ps -a
-```
-
-Stop the node 
- ```
- docker stop <YOUR CONTAINER ID here>
-```
-
-Change DA_NAME=goldberg-docker-avail-Node to your node name and run again 
-```
-cd /mnt/avail
-sudo docker run -v $(pwd)/state:/da/state:rw -v $(pwd)/keystore:/da/keystore:rw -e DA_CHAIN=goldberg -e DA_NAME=goldberg-docker-avail-Node -p 0.0.0.0:30333:30333 -p 9615:9615 -p 9944:9944 -d --restart unless-stopped availj/avail:v1.8.0.2
-```
-
-
-------------------------------------------------------------
-# ** Guide Update Kate to GoldBerg by pre-build**
-
-Run Commands 
-```
-sudo systemctl stop availd.service 
-cd /root/avail-node/
-rm data-avail-linux-amd64
-rm data-avail-linux-amd64.tar.gz
-wget https://github.com/availproject/avail/releases/download/v1.8.0.3/data-avail-linux-amd64.tar.gz
-tar xvzf data-avail-linux-amd64.tar.gz
-```
-Open file Systemd and edit to --chain goldberg
-```
-nano /etc/systemd/system/availd.service
-```
-```
-[Unit]
-Description=Avail Validator
-After=network.target
-StartLimitIntervalSec=0
-
-[Service]
-User=root
-Type=simple
-Restart=always
-RestartSec=120
-ExecStart=/root/avail-node/data-avail-linux-amd64 -d ./output --chain goldberg --port 30333 --validator --name "dinhcongac221"
-
-[Install]
-WantedBy=multi-user.target
-```
-
-CTRL +o to save . Ctrl +X to exit
-
-restart systemd file again
-
-```
-sudo systemctl daemon-reload
-sudo systemctl enable availd.service
-sudo systemctl restart availd.service
-sudo systemctl status availd.service
 ```
